@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory App – Project Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 200px;
+      background-color: #191919;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .sidebar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'VT323', monospace;
+      font-size: 24px;
+    }
+
+    .sidebar .tab.active a,
+    .sidebar a:hover {
+      color: #e6a8f6;
+    }
+
+    .sidebar-social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .top-tab {
+      position: fixed;
+      top: 0;
+      left: 200px;
+      height: 30px;
+      width: 200px;
+      background-color: #1e1e1e;
+      color: #fff;
+      font-family: 'VT323', monospace;
+      font-size: 20px;
+      z-index: 9;
+      text-align: center;
+      line-height: 30px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-tab span {
+      text-transform: capitalize;
+      color: #e6a8f6;
+    }
+
+    .journey-container {
+      margin-left: 220px;
+      margin-top: 60px;
+      padding: 2rem;
+      width: calc(100% - 220px);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .bubble {
+      display: none;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .bubble img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .bubble .text {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      min-width: 200px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .bubble.question .text {
+      border-left: 4px solid #e6a8f6;
+    }
+
+    .bubble.answer {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-self: flex-end;
+    }
+
+    .bubble.answer .text {
+      background-color: #222;
+      border-left: 4px solid #87e6f6;
+    }
+
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: 2.5rem;
+      margin-bottom: -1rem;
+    }
+
+    .typing-indicator.right {
+      justify-content: flex-end;
+      margin-left: auto;
+      margin-right: 2.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #999;
+      animation: blink 1.4s infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+      <li class="tab"><a href="index.html">home</a></li>
+      <li class="tab"><a href="about.html">about</a></li>
+      <li class="tab active"><a href="projects.html">projects</a></li>
+      <li class="tab"><a href="skills.html">skills</a></li>
+    </ul>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/shahram-chaudhry/" target="_blank">
+        <img src="logos/linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
+      <a href="mailto:sc9425@nyu.edu">
+        <img src="logos/gmail.png" alt="Gmail" class="social-icon">
+      </a>
+    </div>
+  </div>
+
+  <div class="top-tab">
+    <span>Project Journey</span>
+  </div>
+
+  <div class="journey-container" id="journey"></div>
+
+  <script>
+    const messages = [
+      { type: 'question', img: 'user.png', text: 'Why did you build this inventory tool?' },
+      { type: 'answer', img: 'mypicture.jpg', text: 'Honestly, my mom’s a doctor and runs a clinic, and my dad, while not a doctor, loves managing it. One issue he kept complaining about was the pharmacists struggling with Excel — duplicates, outdated lists, all of it. So, I built a super simple UI to make their lives easier.' },
+      { type: 'question', img: 'user.png', text: 'What does the tool actually do?' },
+      { type: 'answer', img: 'mypicture.jpg', text: 'It’s a web-based inventory system where users can view, search, update, and remove items. You can also categorize everything neatly. No more Excel chaos!' },
+      { type: 'question', img: 'user.png', text: 'How did you build it?' },
+      { type: 'answer', img: 'mypicture.jpg', text: 'HTML, CSS, and JS on the frontend. Backend was Node + Express with a MongoDB database to store inventory items. I kept the UI intentionally clean for ease of use.' },
+      { type: 'question', img: 'user.png', text: 'Any features you want to add?' },
+      { type: 'answer', img: 'mypicture.jpg', text: 'Yes! Low stock warnings, user login for roles like admin/pharmacist, and maybe analytics charts to track consumption rates.' }
+    ];
+
+    const container = document.getElementById('journey');
+
+    function createTypingIndicator(type) {
+      const t = document.createElement('div');
+      t.className = 'typing-indicator' + (type === 'answer' ? ' right' : '');
+      t.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+      return t;
+    }
+
+    function createBubble({ type, img, text }) {
+      const div = document.createElement('div');
+      div.className = `bubble ${type}`;
+      div.innerHTML = `<img src="${img}" alt="pfp"><div class="text"></div>`;
+      return div;
+    }
+
+    function typeText(element, fullText, callback) {
+      let index = 0;
+      const speed = 15;
+
+      function typeChar() {
+        if (index < fullText.length) {
+          element.textContent += fullText.charAt(index);
+          index++;
+          setTimeout(typeChar, speed);
+        } else {
+          if (callback) callback();
+        }
+      }
+
+      typeChar();
+    }
+
+    let i = 0;
+    function renderNextMessage() {
+      if (i >= messages.length) return;
+
+      const msg = messages[i];
+      const typing = createTypingIndicator(msg.type);
+      container.appendChild(typing);
+
+      setTimeout(() => {
+        typing.remove();
+        const bubble = createBubble(msg);
+        container.appendChild(bubble);
+        bubble.style.display = 'flex';
+        const textBox = bubble.querySelector('.text');
+        typeText(textBox, msg.text, () => {
+          i++;
+          setTimeout(renderNextMessage, 500);
+        });
+      }, 1000);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => renderNextMessage());
+  </script>
+</body>
+</html>

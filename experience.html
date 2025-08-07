@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Experience Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=VT323&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 200px;
+        background-color: #191919;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+    .sidebar ul {
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar li {
+        margin: 20px 0;
+        text-align: center;
+    }
+    .sidebar a {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'VT323', monospace;
+        font-size: 24px;
+    }
+    .sidebar .tab.active a,
+    .sidebar a:hover {
+        color: #e6a8f6;
+    }
+    .sidebar-social {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .social-icon {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    /* Top Tab */
+    .top-tab {
+        position: fixed;
+        top: 0;
+        left: 200px;
+        height: 30px;
+        width: 200px;
+        background-color: #1e1e1e;
+        color: #fff;
+        font-family: 'VT323', monospace;
+        font-size: 20px;
+        z-index: 9;
+        text-align: center;
+        line-height: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .top-tab span {
+        text-transform: capitalize;
+        color: #e6a8f6;
+    }
+
+    /* Timeline container */
+    .timeline-container {
+        margin-left: 220px;
+        margin-top: 60px;
+        padding: 2rem;
+        position: relative;
+    }
+
+    /* Center line */
+    .timeline {
+        position: relative;
+        margin: 0 auto;
+        padding: 2rem 0;
+        width: 90%;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: #e6a8f6;
+    }
+
+    /* Timeline item */
+    .timeline-item {
+        position: relative;
+        width: 35%;
+        padding: 1rem;
+        background: #b88fd9; /* lighter lavender */
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease-out;
+    }
+    .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Alternating layout - pushed away from center */
+    .timeline-item.left {
+        left: -2%;
+    }
+    .timeline-item.right {
+        left: 60%;
+    }
+
+    /* Connector dot */
+    .timeline-dot {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 18px;
+        background: #4b1e59; /* dark purple */
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    /* Horizontal connector lines */
+    .timeline-line {
+        position: absolute;
+        top: 38px;
+        height: 2px;
+        background: #e6a8f6;
+        z-index: 1;
+    }
+    .timeline-item.left .timeline-line {
+        left: 50%;
+        width: calc(50% - 180px);
+    }
+    .timeline-item.right .timeline-line {
+        right: 50%;
+        width: calc(50% - 180px);
+    }
+
+    /* Text styles */
+    .timeline-date {
+        font-size: 0.9rem;
+        color: #333;
+        margin-bottom: 0.3rem;
+    }
+    .timeline-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 0.2rem;
+    }
+    .timeline-subtitle {
+        font-size: 1rem;
+        font-style: italic;
+        color: #222;
+        margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #111;
+    }
+    .skills {
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
+        color: #1f4c73;
+    }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+    <ul>
+        <li class="tab"><a href="index.html">home</a></li>
+        <li class="tab active"><a href="experience.html">experience</a></li>
+        <li class="tab"><a href="projects.html">projects</a></li>
+        <li class="tab"><a href="skills.html">skills</a></li>
+        <li class="tab"><a href="about.html">about</a></li>
+    </ul>
+</div>
+
+<div class="top-tab">
+    <span>experience</span>
+</div>
+
+<div class="timeline-container">
+    <div class="timeline">
+
+        <!-- Barclays -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item left">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Jun 2025 – Aug 2025</div>
+            <div class="timeline-title">Software Engineering Intern</div>
+            <div class="timeline-subtitle">Barclays – New York, USA</div>
+            <div class="timeline-desc">
+                Led a team of four interns, set project direction, managed blockers, and kept the PM updated.<br>
+                <strong>Projects:</strong> AppMap – automated application dependency visualization from CSV data.<br>
+                KbBot – NLP-powered incident resolution bot using MPNet-base-v2 + foundation model for conversational responses.<br>
+                Support Management Console – Resource directory & search tool for PMs.
+            </div>
+            <div class="skills">Skills: NLP · Data Visualization · Full-Stack Development · Leadership · Process Automation</div>
+        </div>
+
+        <!-- Enrichly -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item right">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Feb 2024 – Present</div>
+            <div class="timeline-title">Technical Product Manager / SWE Intern</div>
+            <div class="timeline-subtitle">Enrichly – Remote</div>
+            <div class="timeline-desc">
+                Built empathetic chatbot using Hume API to analyze voice/text emotions.<br>
+                Led provider dashboard development for healthcare clients to assign/manage psychological assessments.
+            </div>
+            <div class="skills">Skills: Product Management · API Integration · Dashboard Development · Emotional AI</div>
+        </div>
+
+        <!-- Rock Art -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item left">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Mar 2025 – May 2025</div>
+            <div class="timeline-title">Student Assistant</div>
+            <div class="timeline-subtitle">Rock Art Preservation Project – Abu Dhabi, UAE</div>
+            <div class="timeline-desc">
+                Contributed to MENA-wide museum project with 3D scanning/printing of rock art.<br>
+                Developed initial database and platform for artifact archiving.
+            </div>
+            <div class="skills">Skills: 3D Data Processing · Database Design · Cultural Preservation</div>
+        </div>
+
+        <!-- Student Persistence -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item right">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Jan 2025 – May 2025</div>
+            <div class="timeline-title">Student Assistant – Student Persistence & Well-being</div>
+            <div class="timeline-subtitle">NYU Abu Dhabi</div>
+            <div class="timeline-desc">
+                Organized well-being events and created social media content on topics like sleep hygiene, nutrition, and mental health.
+            </div>
+            <div class="skills">Skills: Event Management · Content Creation · Health Education</div>
+        </div>
+
+        <!-- NY Study Away -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item left">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Sep 2024 – Dec 2024</div>
+            <div class="timeline-title">Study Away</div>
+            <div class="timeline-subtitle">New York, USA</div>
+            <div class="timeline-desc">
+                Focused on advanced coursework and exploring the US while studying at NYU New York.
+            </div>
+        </div>
+
+        <!-- Paris Study Away -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item right">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Jan 2024 – May 2024</div>
+            <div class="timeline-title">Study Away</div>
+            <div class="timeline-subtitle">Paris, France</div>
+            <div class="timeline-desc">
+                Studied at NYU Paris, traveled to 18+ European countries, gaining cultural exposure and problem-solving skills through travel challenges.
+            </div>
+        </div>
+
+        <!-- Letsrise -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item left">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">Jun 2023 – Aug 2023</div>
+            <div class="timeline-title">Data Engineer Intern</div>
+            <div class="timeline-subtitle">Letsrise – Remote</div>
+            <div class="timeline-desc">
+                Built a matching algorithm to pair entrepreneurs with mentors based on 15 personality traits.<br>
+                Automated data visualization using Google Apps Script.
+            </div>
+            <div class="skills">Skills: Algorithm Design · Data Visualization · Automation</div>
+        </div>
+
+        <!-- ML Research -->
+        <div class="timeline-dot"></div>
+        <div class="timeline-item right">
+            <div class="timeline-line"></div>
+            <div class="timeline-date">May 2023 – Dec 2023</div>
+            <div class="timeline-title">Machine Learning Research Assistant</div>
+            <div class="timeline-subtitle">NYU Abu Dhabi</div>
+            <div class="timeline-desc">
+                Developed adversarial defenses for CNNs using FGSM, AD-FGSM, and PGD attacks.<br>
+                Conducted comparative analysis of defense methods, achieving up to 99% accuracy under adversarial attack.
+            </div>
+            <div class="skills">Skills: PyTorch · TensorFlow · Deep Learning · Machine Learning</div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Scroll animation
+    const items = document.querySelectorAll('.timeline-item');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
