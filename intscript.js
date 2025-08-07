@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function readWords() {
 
-        words = 'Shahram Chaudhry';
+        words = 'Driven\nAnalytical\nResourceful';
         txt = words.split('\n');
     }
 

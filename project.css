@@ -108,7 +108,7 @@ body {
     padding: 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     width: 380px; 
-    height: 450px; 
+    height: 460px; 
     display: flex;
     flex-direction: column;
 }
@@ -145,4 +145,40 @@ body {
 .project-link {
     text-decoration: none; 
     color: inherit;        
+}
+
+.project-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+.project-buttons a {
+    margin-bottom: 0.8rem; 
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+
+}
+
+.btn-live {
+    background-color: #e6a8f6;
+    color: white;
+}
+
+.btn-live:hover {
+    background-color: #e6a8f6;
+}
+
+.btn-journey {
+    background-color: transparent;
+    color:#e6a8f6;
+    border: 2px solid #e6a8f6;
+}
+
+.btn-journey:hover {
+    background-color: #e6a8f6;
+    color: white;
 }
