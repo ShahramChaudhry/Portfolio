@@ -1,0 +1,61 @@
+{
+  "projects": [
+    {
+      "id": "hiresight",
+      "title": "HireSight",
+      "subtitle": "AI Recruiting Intelligence",
+      "description": "An AI-powered candidate screening system built with Google Gemini. Extracts insights from resumes, scores candidates against custom criteria, and generates recruiter-ready summaries with weighted analysis. Built for speed, fairness, and transparency in hiring.",
+      "tags": ["AI/ML", "Google Gemini", "Next.js", "Python"],
+      "image": "/projects/hiresight.png",
+      "live": "https://hire-sight-nine.vercel.app"
+    },
+    {
+      "id": "jetsetgo",
+      "title": "JetSetGo",
+      "subtitle": "Smart Visa & Travel Intelligence",
+      "description": "A smart travel tool that finds visa-free and visa-on-arrival destinations for your nationality and chosen dates, then ranks them by real-time flight prices using the Amadeus API - making spontaneous trips effortless. ", 
+      "tags": ["React", "API Integration", "UX Design"],
+      "image": "/projects/jetsetgo.png",
+      "live": "https://jet-set-go-xi.vercel.app"
+    },
+
+    {
+      "id": "lastcrumb",
+      "title": "LastCrumb",
+      "subtitle": "Real-Time Food Matching",
+      "description": "The first UAE-based version of the Too Good To Go concept - a mobile-first platform that lets users buy leftover restaurant meals at a discounted price. Built with Stripe for secure payments and Google Maps to surface nearby blind boxes, the system promotes food sustainability while making quality meals more affordable.",
+      "tags": ["React Native", "Node.js", "Algorithm Design", "Firebase"],
+      "image": "/projects/lastcrumb.png",
+      "demo": "https://drive.google.com/file/d/1dN1nN9PSRohal9IUpqAn2R1KLMauix31/view?usp=sharing"
+    },
+
+    {
+      "id": "mindpalace",
+      "title": "MindPalace",
+      "subtitle": "Gesture-Driven Memory Interface",
+      "description": "An interactive memory-palace learning tool powered by hand-gesture recognition. A playful exploration of creative ML interfaces, designed with expressive UI and intuitive spatial metaphors.",
+      "tags": ["ml5.js", "Computer Vision", "Figma", "React"],
+      "image": "/projects/mindpalace.png",
+      "live": "https://editor.p5js.org/sc9425/full/RnrYJ2fls"
+    },
+    {
+      "id": "churn-predictor",
+      "title": "Churn Predictor",
+      "subtitle": "ML Platform with 90% Accuracy",
+      "description": "A complete machine-learning powered churn prediction app. XGBoost + SMOTE to counter class imbalance. Next.js frontend + Flask backend. Real-time predictions via REST API. Clean dashboards for insights and customer segmentation.",
+      "tags": ["XGBoost", "Flask", "Next.js", "REST API", "SMOTE"],
+      "image": "/projects/churnpredictor.png",
+      "live": "https://churnpredictor.vercel.app"
+    },
+    {
+      "id": "inventory-tracker",
+      "title": "Inventory Tracker",
+      "subtitle": "Real-Time Operations Tool",
+      "description": "A fast, secure inventory management system for clinics. Built with React, Next.js, Firebase, and Material-UI. Features real-time item search, add/update/remove flows, and improved operational efficiency by 25%. Includes alphabetically sorted dynamic lists.",
+      "tags": ["Next.js", "Firebase", "Material-UI", "Real-time"],
+      "image": "/projects/inventory.png",
+      "live": "https://inventory-tracker-peach.vercel.app/inventory"
+    } 
+  ]
+}
+
