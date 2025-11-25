@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 
 const skillGroups = [
@@ -49,7 +50,7 @@ const skillGroups = [
   {
     title: 'Cloud & Infra',
     skills: [
-      'CI/CD', 'Docker', 'Linux', 'Monitoring',
+      'CI/CD', 'Docker', 'Monitoring',
       'Reliability Engineering', 'Systems Debugging'
     ],
     icon: (
@@ -107,54 +108,73 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section className="relative min-h-screen py-32 px-[350px] bg-black mt-0">
-  <div className="w-full">   {/* <-- MATCHES PROJECTS EXACTLY */}
-
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="font-heading text-7xl font-bold mb-20 text-[#7D8CBA]"
+    <section
+      className="
+        relative min-h-screen
+        py-20 sm:py-24 md:py-32
+        px-6 sm:px-8 md:px-12 lg:px-24 xl:px-48 2xl:px-64
+        bg-black
+      "
     >
-      Skills
-    </motion.h2>
+      {/* 👇 Removed max-width to match Projects EXACTLY */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="mb-16 md:mb-24"
+      >
+        <h2 className="font-heading text-5xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-[#7D8CBA] mb-4">
+          Skills
+        </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {skillGroups.map((group, index) => (
-        <motion.div
-          key={group.title}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.15 }}
-          viewport={{ once: true }}
-          className="group relative bg-black rounded-2xl p-10 border border-white/10 hover:border-[#7D8CBA] transition-all duration-300 hover:shadow-lg hover:shadow-[#7D8CBA]/20"
-        >
-          <div className="mb-6 text-white/40 group-hover:text-[#7D8CBA] transition-colors">
-            {group.icon}
-          </div>
+        <p className="text-lg sm:text-xl md:text-3xl text-white/70 max-w-none">
+          A diverse set of technical and professional skills I've developed
+        </p>
+      </motion.div>
 
-          <h3 className="font-heading text-3xl font-bold mb-6 group-hover:text-[#7D8CBA] transition-colors">
-            {group.title}
-          </h3>
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {skillGroups.map((group, index) => (
+          <motion.div
+            key={group.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            viewport={{ once: true, margin: '-50px' }}
+            className="group relative bg-black rounded-2xl p-6 sm:p-8 border border-white/10 
+                       hover:border-[#7D8CBA] transition-all duration-300 
+                       hover:shadow-lg hover:shadow-[#7D8CBA]/10"
+          >
+            <div className="mb-4 sm:mb-6 text-white/40 group-hover:text-[#7D8CBA] transition-colors">
+              {React.cloneElement(group.icon, {
+                className: 'w-10 h-10 sm:w-12 sm:h-12'
+              })}
+            </div>
 
-          <div className="flex flex-wrap gap-3">
-            {group.skills.map(skill => (
-              <span
-                key={skill}
-                className="px-4 py-1.5 bg-white/5 rounded-full text-sm text-white/70 border border-white/10 group-hover:border-[#7D8CBA]/30 transition-colors"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+            <h3 className="font-heading text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 group-hover:text-[#7D8CBA] transition-colors">
+              {group.title}
+            </h3>
 
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#7D8CBA]/0 to-[#A3B4FF]/0 group-hover:from-[#7D8CBA]/5 group-hover:to-[#A3B4FF]/5 transition-all duration-300 pointer-events-none" />
-        </motion.div>
-      ))}
-    </div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              {group.skills.map(skill => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 sm:px-4 sm:py-1.5 bg-white/5 rounded-full 
+                             text-xl sm:text-sm text-white/70 border border-white/10 
+                             group-hover:border-[#7D8CBA]/30 transition-colors whitespace-nowrap"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
 
-  </div>
-</section>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#7D8CBA]/0 to-[#A3B4FF]/0 
+                            group-hover:from-[#7D8CBA]/5 group-hover:to-[#A3B4FF]/5 
+                            transition-all duration-300 pointer-events-none" />
+          </motion.div>
+        ))}
+      </div>
+    </section>
   )
 }

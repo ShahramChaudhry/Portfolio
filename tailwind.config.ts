@@ -7,7 +7,29 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+      },
+    },
     extend: {
+      maxWidth: {
+        'section': '2000px',
+      },
+      padding: {
+        'section': '1rem',
+        'section-sm': '1.5rem',
+        'section-md': '2rem',
+        'section-lg': '3rem',
+        'section-xl': '4rem',
+        'section-2xl': '6rem',
+      },
       colors: {
         primary: {
           white: '#FFFFFF',

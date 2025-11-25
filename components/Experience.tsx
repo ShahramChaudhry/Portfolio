@@ -25,40 +25,34 @@ const experiences = [
     year: "2025",
     description:
       "Working on Mubadala’s autonomous driving initiative, helping optimize the speed and efficiency of the car’s real-time perception system.",
-
     highlights: [
       "Reducing inference time for computer-vision models by applying dynamic/static quantization, pruning, and lightweight architecture strategies during both training and deployment.",
     ]
   },
 
   {
-    
-      company: "Enrichly",
-      role: "Technical Product Manager",
-      year: "2025",
-      description:
-        "Joined a behavioral-science startup focused on helping students build self-esteem, confidence, and overall well-being. I worked across engineering, content, and design to turn psychological insights into tools that felt supportive, intuitive, and genuinely helpful.",
-        
-      highlights: [
-        "Originally joined as a Software Engineering Intern and was promoted to Technical Product Manager after taking ownership of core features and cross-team workflows.",
-        "Designed an emotionally aware AI chatbot using Hume AI, built with both voice and text modes. It could detect emotional cues in speech, track sentiment over time, and adapt responses to support students in a more human, empathetic way.",
-        "Oversaw the development of a psychological-assessment dashboard for healthcare providers—allowing doctors, counselors, and students to assign assessments, track progress, and review results in one place, streamlining the entire evaluation process."
-      ]
-
+    company: "Enrichly",
+    role: "Technical Product Manager",
+    year: "2025",
+    description:
+      "Joined a behavioral-science startup focused on helping students build self-esteem, confidence, and overall well-being. I worked across engineering, content, and design to turn psychological insights into tools that felt supportive, intuitive, and genuinely helpful.",
+    highlights: [
+      "Originally joined as a Software Engineering Intern and was promoted to Technical Product Manager after taking ownership of core features and cross-team workflows.",
+      "Designed an emotionally aware AI chatbot using Hume AI, built with both voice and text modes. It could detect emotional cues in speech, track sentiment over time, and adapt responses to support students in a more human, empathetic way.",
+      "Oversaw the development of a psychological-assessment dashboard for healthcare providers—allowing doctors, counselors, and students to assign assessments, track progress, and review results in one place, streamlining the entire evaluation process."
+    ]
   },
 
   {
-      company: "LETSRISE",
-      role: "Data Engineer Intern",
-      year: "2024",
-      description:
-        "Joined an early-stage startup building a smarter way for founders to find the right co-founders, teammates, and collaborators. A lot of my work blended psychology, data engineering, and matching algorithms.",
-    
-      highlights: [
-        "Designed a matching system that used Big Five personality traits, skills, and role preferences to help founders decide whether they needed complementary profiles or someone more similar - improving co-founder matches across roles like CTO, CFO, and COO.",
-        "Built automated data pipelines and scoring logic that powered real-time recommendations for 100+ entrepreneurs, and developed dashboards that helped leadership understand user patterns and refine product direction."
-      ]
-    
+    company: "LETSRISE",
+    role: "Data Engineer Intern",
+    year: "2024",
+    description:
+      "Joined an early-stage startup building a smarter way for founders to find the right co-founders, teammates, and collaborators. A lot of my work blended psychology, data engineering, and matching algorithms.",
+    highlights: [
+      "Designed a matching system that used Big Five personality traits, skills, and role preferences to help founders decide whether they needed complementary profiles or someone more similar - improving co-founder matches across roles like CTO, CFO, and COO.",
+      "Built automated data pipelines and scoring logic that powered real-time recommendations for 100+ entrepreneurs, and developed dashboards that helped leadership understand user patterns and refine product direction."
+    ]
   },
 
   {
@@ -73,6 +67,7 @@ const experiences = [
     ]
   }
 ];
+
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -85,12 +80,14 @@ export default function Experience() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen py-10 px-[350px] bg-black text-white"
+      className="
+        relative min-h-screen
+        py-20 
+        px-6 sm:px-8 md:px-12 lg:px-24 xl:px-48 2xl:px-[350px]
+        bg-black text-white
+      "
     >
       <motion.div style={{ y }} className="max-w-[1600px]">
-
-        {/* INTRO LINE */}
-        
 
         {/* SECTION TITLE */}
         <motion.h2
@@ -98,16 +95,18 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="font-heading text-7xl font-bold mb-20 text-[#7D8CBA]"
+          className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold mb-10 text-[#7D8CBA]"
         >
           Experience
         </motion.h2>
-        <p className="text-white/70 text-2xl mb-10 leading-relaxed tracking-wide">
+
+        {/* INTRO LINE */}
+        <p className="text-white/70 text-xl sm:text-2xl max-w-4xl leading-relaxed mb-16">
           I have about 1 year of experience working across technical roles at startups and top companies.
         </p>
 
         {/* EXPERIENCE LIST */}
-        <div className="space-y-20">
+        <div className="space-y-24">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
@@ -115,36 +114,36 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative border-l-2 border-white/10 pl-10 pb-10"
+              className="relative border-l-2 border-white/10 pl-10 pb-10"
             >
-              {/* Timeline dot */}
+              {/* TIMELINE DOT */}
               <div className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#7D8CBA] shadow-lg shadow-[#7D8CBA]/40" />
 
-              {/* Year */}
-              <span className="block text-[#7D8CBA] text-2xl font-mono mb-4">
+              {/* YEAR */}
+              <span className="block text-[#7D8CBA] text-xl sm:text-2xl font-mono mb-4">
                 {exp.year}
               </span>
 
-              {/* Company */}
-              <h3 className="font-heading text-4xl font-bold mb-2">
+              {/* COMPANY */}
+              <h3 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                 {exp.company}
               </h3>
 
-              {/* Role */}
-              <h4 className="text-2xl text-[#7D8CBA] mb-6">
+              {/* ROLE */}
+              <h4 className="text-xl sm:text-2xl md:text-3xl text-[#7D8CBA] mb-6">
                 {exp.role}
               </h4>
 
-              {/* Description */}
-              <p className="text-white/80 text-2xl leading-relaxed mb-6 tracking-wide">
+              {/* DESCRIPTION */}
+              <p className="text-white/80 text-lg sm:text-xl md:text-2xl leading-relaxed mb-6 tracking-wide">
                 {exp.description}
               </p>
 
-              {/* Highlights */}
-              <ul className="space-y-5 text-xl leading-relaxed text-white/80">
+              {/* BULLET POINTS */}
+              <ul className="space-y-5 text-lg sm:text-xl leading-relaxed text-white/80">
                 {exp.highlights.map((highlight, i) => (
-                  <li key={i} className="flex gap-4 text-white/70 leading-relaxed">
-                    <span className="text-[#7D8CBA] mt-2">•</span>
+                  <li key={i} className="flex gap-4">
+                    <span className="text-[#7D8CBA] mt-1.5">•</span>
                     <span>{highlight}</span>
                   </li>
                 ))}
